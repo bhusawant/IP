@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Background Color Changer</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s ease;
+  }
+  label {
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  .color-options {
+    display: flex;
+  }
+  .color-option {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .color-option.selected {
+    border-color: #333;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  .color-option.selected:hover {
+    transform: scale(1.1);
+  }
+</style>
+</head>
+<body>
+
+<h1>Background Color Changer</h1>
+
+<div class="color-options">
+  <label class="color-option" style="background-color: red;"></label>
+  <label class="color-option" style="background-color: blue;"></label>
+  <label class="color-option" style="background-color: green;"></label>
+  <label class="color-option" style="background-color: pink;"></label>
+  <label class="color-option" style="background-color: yellow;"></label>
+</div>
+
+<script>
+  const colorOptions = document.querySelectorAll('.color-option');
+
+  colorOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const selectedColor = option.style.backgroundColor;
+      document.body.style.backgroundColor = selectedColor;
+
+      colorOptions.forEach(otherOption => {
+        otherOption.classList.remove('selected');
+      });
+
+      option.classList.add('selected');
+    });
+  });
+</script>
+
+</body>
+</html>
