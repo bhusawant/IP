@@ -1,0 +1,27 @@
+sudo iptables -L
+sudo iptables -A INPUT -p tcp --dport ssh -j ACCEPT
+sudo iptables -L
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -L
+sudo iptables -A INPUT -j DROP
+sudo iptables -L
+sudo iptables -I INPUT -i lo -j ACCEPT
+sudo iptables -L
+sudo iptables -L -v
+sudo iptables -A INPUT -p icmp -j ACCEPT
+sudo iptables -L
+sudo iptables -D INPUT 5
+sudo iptables -L
+sudo iptables -I INPUT 1 -p icmp -j ACCEPT
+sudo iptables -L
+ping 192.168.0.126
+sudo iptables -A OUTPUT -p icmp -j DROP
+sudo iptables -L
+ping 192.168.0.126
+sudo iptables -D OUTPUT 1
+ping 192.168.0.126
+sudo iptables -L
+sudo iptables -A INPUT -p icmp -j DROP
+sudo iptables -F
+sudo iptables -L
+ping 192.168.0.126

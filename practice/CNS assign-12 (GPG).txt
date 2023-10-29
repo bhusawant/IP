@@ -1,0 +1,26 @@
+sudo apt-get install gpg
+gpg --version
+ 
+
+gpg --export -a bhuvan>senderpudlickey
+cat senderpudlickey
+
+gpg --export-secret-key -a bhuvan>senderprivatekey
+touch senderprivatekey
+cat senderprivatekey
+
+gpg --fingerprint bhuvan@abc.com
+ 
+gpg --export -a bhuvan>receiverpublickey
+gpg --list-keys
+gpg --list-keys bhuvan@abc.com
+
+cat sample.txt
+gpg -c sample.txt
+cat  sample.txt.gpg
+
+gpg --encrypt --sign --armor -r bhuvan@abc.com sample.txt
+cat sample.txt.asc
+
+gpg -o decryptedfile -d sample.txt.gpg
+cat decryptedfile

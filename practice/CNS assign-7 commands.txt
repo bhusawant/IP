@@ -1,0 +1,11 @@
+tcpdump -D
+sudo tcpdump -n
+sudo tcpdump -v -n
+sudo tcpdump -n tcp
+sudo tcpdump -n icmp
+sudo tcpdump port 80
+sudo tcpdump udp and src port 53
+sudo tcpdump portrange 1-80
+sudo tcpdump port 80 -w capture_1
+sudo tcpdump 'tcp[13] & 1!=0'
+sudo tcpdump 'tcp[tcpflags] == tcp-rst'

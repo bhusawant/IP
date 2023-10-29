@@ -1,0 +1,33 @@
+TCP SYN:
+sudo nmap -sS flipkart.com
+
+TCP Connect:
+sudo nmap -sT flipkart.com
+
+UDP:
+sudo nmap -sU flipkart.com
+
+TCP Null:
+sudo nmap -sN flipkart.com
+
+TCP FIN: 
+sudo nmap -sF flipkart.com
+
+TCP XMAS:
+sudo nmap -sX flipkart.com
+
+TCP ACK: 
+sudo nmap -sA flipkart.com
+
+IP Protocol: 
+sudo nmap -sO flipkart.com
+
+OS Fingerprinting:
+sudo nmap -O flipkart.com
+
+Ping Sweep:
+nmap -sP 192.168.0.1-254
+
+Wireshark:
+sudo apt install wireshark
+sudo wireshark

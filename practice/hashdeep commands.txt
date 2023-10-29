@@ -1,0 +1,27 @@
+sudo apt-get install hashdeep
+hashdeep -V
+man hashdeep
+man md5deep
+cd Desktop
+touch temp.txt
+hashdeep temp.txt
+hashdeep -b temp.txt
+hashdeep -s temp.txt
+hashdeep -c md5, sha1, sha256, tiger temp.txt
+hashdeep - с ma5 *.txt
+hashdeep - с ma5, sha1 *.txt
+hashdeep -C md5 -p 10 temp.txt
+hashdeep -C md5 -p 100 temp.txt
+md5deep *.txt > hashset.txt
+hashdeep *.txt > hashset2.txt
+cat hashset2.txt
+hashdeep -s -m hashset.txt *
+hashdeep -s -m hashset3.txt *
+hashdeep -s -m hashset2.txt *
+md5deep -s -x hashset.txt *
+hashdeep -s -x hashset2.txt *
+md5deep -s -x hashset.txt *
+hashdeep -s -x -k hashset2.txt *
+
+
+
