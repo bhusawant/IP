@@ -588,3 +588,25 @@ const writeStream = fs.createWriteStream('output.txt');
 
 readStream.pipe(writeStream);
 ```
+
+
+###Another example of reference
+import React, { useRef } from 'react';
+
+export default function Counter() {
+  const countRef = useRef(0);
+
+  function handleClick() {
+    countRef.current = countRef.current + 1;
+    document.getElementById('countDisplay').innerText = `Count: ${countRef.current}`;
+  }
+
+  return (
+    <div>
+      <button onClick={handleClick}>
+        Click me!
+      </button>
+      <p id="countDisplay">Count: 0</p>
+    </div>
+  );
+}
