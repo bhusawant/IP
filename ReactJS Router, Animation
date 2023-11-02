@@ -1,0 +1,73 @@
+npm install react-router-dom
+// Home.js
+import React from 'react';
+const Home = () => {
+ return (
+ <div>
+ <h1>Home Page</h1>
+ <p>Welcome to the Home Page!</p>
+ </div>
+ );
+};
+export default Home;
+// About.js
+import React from 'react';
+const About = () => {
+ return (
+ <div>
+ <h1>About Page</h1>
+ <p>About our awesome website!</p>
+ </div>
+ );
+};
+export default About;
+// Contact.js
+import React from 'react';
+const Contact = () => {
+ return (
+ <div>
+ <h1>Contact Page</h1>
+ <p>Contact us for more information!</p>
+ </div>
+ );
+};
+export default Contact;
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Updated 
+import
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
+const App = () => {
+ return (
+ <Router>
+ <div>
+ <nav>
+ <ul>
+ <li>
+ <Link to="/">Home</Link>
+ </li>
+ <li>
+ <Link to="/about">About</Link>
+ </li>
+ <li>
+ <Link to="/contact">Contact</Link>
+ </li>
+ </ul>
+ </nav>
+ <Routes> {/* Wrap your routes in a <Routes> element */
+ <Route path="/" element={<Home />} />
+ <Route path="/about" element={<About />} />
+ <Route path="/contact" element={<Contact />} />
+ </Routes>
+ </div>
+ </Router>
+ );
+};
+export default App;
+// index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+ReactDOM.render(<App />, document.getElementById('root'));
