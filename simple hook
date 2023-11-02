@@ -1,0 +1,18 @@
+//App.js
+import './App.css';
+import { useState } from 'react';
+
+function App() {
+  const [first, setFirst] = useState("Name");
+
+  return (
+    <div className="App">
+      <input type='text' value={first} onChange={(e)=>setFirst(e.target.value)}></input>
+	  <div>Your name is {first}</div>
+      <p>{first}</p>
+
+    </div>
+  );
+}
+
+export default App;
