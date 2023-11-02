@@ -1,0 +1,76 @@
+// App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Contact from './Contact';
+const App = () => {
+ const [isLoggedIn, setIsLoggedIn] = useState(false);
+ const [username, setUsername] = useState('');
+ const [password, setPassword] = useState('');
+ const handleLogin = () => {
+ 
+ if (username === 'user' && password === 'password') {
+ setIsLoggedIn(true);
+ }
+ };
+ const handleLogout = () => {
+ setIsLoggedIn(false);
+ };
+ return (
+ <Router>
+ <div>
+ <nav>
+ <ul>
+ <li>
+ <Link to="/">Home</Link>
+ </li>
+ <li>
+ <Link to="/about">About</Link>
+ </li>
+ <li>
+ <Link to="/contact">Contact</Link>
+ </li>
+ </ul>
+ {isLoggedIn ? (
+ <button onClick={handleLogout}>Logout</button>
+ ) : (
+ <div>
+ <input
+ type="text"
+ placeholder="Username"
+ value={username}
+ onChange={(e) => setUsername(e.target.value)}
+ />
+ <input
+ type="password"
+ placeholder="Password"
+ value={password}
+ onChange={(e) => setPassword(e.target.value)}
+ />
+ <button onClick={handleLogin}>Login</button>
+ </div>
+ )}
+ </nav>
+ <Routes>
+ <Route
+ path="/"
+ element={isLoggedIn ? <Home /> : <Login />} 
+ />
+ <Route path="/about" element={<About />} />
+ <Route path="/contact" element={<Contact />} />
+ </Routes>
+ </div>
+ </Router>
+ );
+};
+const Login = () => {
+ return (
+ <div>
+ <h1>Login Page</h1>
+ <p>Please login to access the content.</p>
+ </div>
+ );
+};
+
+export default App;
